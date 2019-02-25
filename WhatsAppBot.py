@@ -8,7 +8,7 @@ import csv
 
 #download chromedriver then add it to path using the following
 options = Options()
-options.add_argument("user-data-dir=~/USERDATA")
+options.add_argument("user-data-dir=/USERDATA")
 driver = webdriver.Chrome(chrome_options=options,executable_path='./chromedriver')
 
 #link of WhatsApp. 
