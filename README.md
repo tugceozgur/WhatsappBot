@@ -1,4 +1,4 @@
-# WhatappBot
+# WhatsappBot
 #HOW TO RUN THE CODE
 Create a file and name My_Whatsapp_Project.
 If you do not want to download ChromeDriver from here then Download ChromeDriver from http://chromedriver.chromium.org/downloads Then extract it and place it to the file named My_Whatsapp_Project. 
