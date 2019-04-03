@@ -23,9 +23,12 @@ count = 2
 #open and read the file which contains the message. 
 x = open("message.dat", 'r').read()
 
-#opens and reads the file contains name of the people who will receive the message. It will read line by line which later is called row (in each line place a people name)
+'''opens and reads the file contains name of the people who will receive the message. It will read line
+ by line which later is called row (in each line place a people name)'''
 with open('filename.dat', 'r') as f:
-    reader = csv.reader(f, dialect='excel', delimiter='\n')
+    #reading names from file can both be performed with cvs or splitlines method. 
+    #reader = csv.reader(f, dialect='excel', delimiter='\n')
+    data= f.read().splitlines()
     
     #for each name, it will go to message space, and click there.
     for row in reader:
@@ -41,5 +44,4 @@ with open('filename.dat', 'r') as f:
             button = driver.find_element_by_class_name('_35EW6')
             button.click()
 
-#after the mission completed, the url will be closed. 
 driver.close()
