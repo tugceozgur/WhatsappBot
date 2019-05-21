@@ -1,35 +1,47 @@
 # WhatsappBot
-#HOW TO RUN THE CODE
-Create a file and name My_Whatsapp_Project.
-If you do not want to download ChromeDriver from here then Download ChromeDriver from http://chromedriver.chromium.org/downloads Then extract it and place it to the file named My_Whatsapp_Project. 
-Write message that you want to sed to file named message.dat 
-Write name of the people that you want to send messages to file named filename.dat
-I personally used Visual Studio Code and open all files there and typed to terminal crontab -e. At the top, I wrote: 
-* * * * * env DISPLAY=:0 /usr/bin/python3 /home/user/My_Whatsapp_Project/WhatsAppBot.py This enables the code to run every minute without manually running. You can change the time as you wish by placing values. (for more info search as crontab time).
-The main code is in WhatsAppBot.py. You will run this file. All other files are referred into this file. 
 
-#FIRST TIME RUNNING
-Be careful to scan the QR code first time you run the code from terminal. After that it will remember your account and automatically opens the section and closes it after execution. 
-Also be careful there should be no WhatsAppWeb tab open after and before execution of the code. 
+WhatsappBot allows to send messages to selected users at user specified regular intervals without dealing with scanning to verify user account each time.
 
-#WhatsAppWeb.py
-Selenium is a tool to test your web application. Therefore import selenium. Also install selenium if it is not installed before. 
-from selenium import webdriver. 
+### Prerequisites
 
-In the options, USERDATA is for storing cookies of whatsapp so that it can remember you and you do not need to scan the code everytime you run the code. 
+Download ChromeDriver from ``` chromedriver``` or Download ChromeDriver from ```http://chromedriver.chromium.org/downloads``` Then extract it.
 
-ChromeDriver path is written in the code.
+### Installing
 
-Then link of the whatsappWeb is provided from chromedriver. 
+Installation recommended for user in python on linux environment.
 
-I found accurate to wait 3 seconds. Since, After installing the page, the code can execute otherwise the code execute before the page installed which ends up with termination of the code. 
+Install Selenium :
 
-I indicate the count inside the code and you can change the number manually. Alternatively, you can input the value. 
+```pip install selenium```
+ 
 
+### Usage
 
-'_2S1VP' value is for indicating message space. The code  will write the message to message space. 
+Fill the file named [message.dat](https://github.com/tugceozgur/WhatsappBot/blob/master/message.dat) with the messages that you want to be sent. 
 
-Then click the send button. 
+Fill the file named [filename.dat](https://github.com/tugceozgur/WhatsappBot/blob/master/filename.dat) each user name per line. 
+
+Define the path of chromedriver to the code below. Code is in this file: [WhatsAppBot.py](https://github.com/tugceozgur/WhatsappBot/blob/master/WhatsAppBot.py)
+
+```driver = webdriver.Chrome(chrome_options=options,executable_path='./chromedriver')```
+
+Define time interval (ex: every minute) by typing to terminal:     ```crontab -e```
+
+At the top, adjust ```*``` symbols and give the path. Below it is adjusted for every minute. 
+
+```* * * * * env DISPLAY=:0 /usr/bin/python3 /home/user/My_Whatsapp_Project/WhatsAppBot.py```
+
+## Inputs
+
+Time sleep is found to be accure as 3 seconds but it can be increased according to how fast the web opens. 
+
+Also count can be adjusted. 
+
+### Notes And First Time Runing!
+
+It is required to scan QR code to enter Whatsapp Web at first time running. 
+
+Also there should be no WhatsAppWeb tab open after and before execution of the code.
 
 
 
