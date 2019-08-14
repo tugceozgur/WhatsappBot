@@ -18,7 +18,7 @@ driver.get('https://web.whatsapp.com/')
 time.sleep(3)
 
 #tells how many times yo want to send the message. 
-count = 2
+count = 5
 
 #open and read the file which contains the message. 
 x = open("message.dat", 'r').read()
@@ -31,17 +31,17 @@ with open('filename.dat', 'r') as f:
     data= f.read().splitlines()
     
     #for each name, it will go to message space, and click there.
-    for row in reader:
+    for row in data:
 
-        user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(row[0]))
+        user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(row))
         user.click()
-        msg_box = driver.find_element_by_class_name('_2S1VP')
+        msg_box = driver.find_element_by_class_name('_3u328')
         
         # take the message from the file and writes it into the empty message block and click the send button. 
         for i in range(0,count):
 
             msg_box.send_keys(x)
-            button = driver.find_element_by_class_name('_35EW6')
+            button = driver.find_element_by_class_name('hnQHL')
             button.click()
 
 driver.close()
