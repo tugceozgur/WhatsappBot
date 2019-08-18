@@ -17,7 +17,7 @@ driver.get('https://web.whatsapp.com/')
 time.sleep(3)
 
 #tells how many times yo want to send the message. 
-count = 5
+message_count = 5
 
 #open and read the file which contains the message. 
 x = open("message.dat", 'r').read()
@@ -28,7 +28,7 @@ with open('filename.dat', 'r') as user_name:
     all_user_names = user_name.read().splitlines()
     
     #for each name, it will go to message space, and click there.
-    for row in data:
+    for row in all_user_names:
 
         user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(row))
         user.click()
